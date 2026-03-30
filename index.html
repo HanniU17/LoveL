@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="styles.css">
+     
+    <title>Hi! Kass</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="border-container">
+            <p style="font-weight: 800;">💜 Hello Kass,</p>
+            <p>
+                I really like you, and I honestly admire the kind of person you are. There’s just something about you that made me appreciate you more and more.
+            </p>
+            <p>
+               From the beginning, I already knew that things wouldn’t always be easy. There would be risks, misunderstandings, doubts, and difficult conversations along the way.
+            </p>
+            <p>
+                And still, I chose you.
+            </p>
+            <p>
+                I’m not loving you because it’s safe — I’m loving you because it’s you. And if pain comes with loving you, then I’m willing to face it.
+            </p>
+            <p>
+                If you’ll let me, I want to be someone who will care for you, make you happy, and give you the love you truly deserve.
+            </p>
+            
+            <p class="may-i">May I court you?</p>
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSe0Dlc7yZr_V_nfKyvR4fhZZ9Gis8eeVXxb6usg-KvZpOxReQ/formResponse"
+                method="POST"
+                target="hidden_iframe"
+                onsubmit="showMessage()">
+
+               <div class="pixel-options">
+                <div>
+                    <input type="radio" id="yes" name="entry.1068399456" value="Yes" required />
+                    <label for="yes" class="pixel-btn">Yes</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="no" name="entry.1068399456" value="No" />
+                    <label for="no" class="pixel-btn">No</label>
+                </div>
+            </div>
+
+            <button type="submit" class="pixel-submit">Submit</button>
+            </form>
+
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+            <p id="successMessage" style="display:none; color:green;">
+                Submitted successfully!
+            </p>
+        </div>
+        <img src="you&me.jfif"/>
+    </div>
+
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</body>
+
+<script>
+    function showMessage() {
+        // Optional: show success message briefly
+        document.getElementById("successMessage").style.display = "block";
+
+        // Redirect after 1 second (1000ms)
+        setTimeout(() => {
+            window.location.href = "date.html";
+        }, 1000);
+    }
+</script>
+</html>

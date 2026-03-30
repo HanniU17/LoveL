@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="styles.css">
+     
+    <title>Hi! Kass</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="border-container">
+           <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfjB0mgI6HsRKWlAiHABsXBgZjs5TkxhvnFMGMhDV5lAysFZQ/formResponse"
+                method="POST"
+                target="hidden_iframe"
+                onsubmit="prepareDateAndShowMessage()">
+
+            <div class="pixel-card">
+                    <h2 class="pixel-title">Let's Date, when are you free?</h2>
+                    <input type="date" id="customDate" required class="pixel-date" />
+
+                    <input type="hidden" name="entry.1187319261_year" id="gYear" />
+                    <input type="hidden" name="entry.1187319261_month" id="gMonth" />
+                    <input type="hidden" name="entry.1187319261_day" id="gDay" />
+
+                    <button type="submit" class="pixel-submit">Submit</button>
+
+                <iframe name="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
+
+                    <p id="successMessage" style="display:none; color:green;">
+                        Submitted successfully!
+                    </p>
+                </div>
+            </form>
+        </div>
+        <img src="you&me.jfif"/>
+    </div>
+
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</body>
+
+<script>
+function prepareDateAndShowMessage() {
+    const dateValue = document.getElementById("customDate").value;
+
+    if (dateValue) {
+        const [year, month, day] = dateValue.split("-");
+        document.getElementById("gYear").value = year;
+        document.getElementById("gMonth").value = month;
+        document.getElementById("gDay").value = day;
+    }
+
+    // Show success message briefly
+    document.getElementById("successMessage").style.display = "block";
+
+    // Redirect after a short delay
+    setTimeout(() => {
+        window.location.href = "result.html";
+    }, 800); // 0.8 seconds delay
+}
+</script>
+</html>
