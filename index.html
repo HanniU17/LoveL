@@ -28,25 +28,27 @@
             </p>
             
             <p class="may-i">May I court you?</p>
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSe0Dlc7yZr_V_nfKyvR4fhZZ9Gis8eeVXxb6usg-KvZpOxReQ/formResponse"
+            <form id="myForm" 
+                action="https://docs.google.com/forms/d/e/1FAIpQLSe0Dlc7yZr_V_nfKyvR4fhZZ9Gis8eeVXxb6usg-KvZpOxReQ/formResponse"
                 method="POST"
                 target="hidden_iframe"
-                onsubmit="showMessage()">
+                onsubmit="showMessage(event)">
 
-               <div class="pixel-options">
-                <div>
-                    <input type="radio" id="yes" name="entry.1068399456" value="Yes" required />
-                    <label for="yes" class="pixel-btn">Yes</label>
+                <div class="pixel-options">
+                    <div>
+                        <input type="radio" id="yes" name="entry.1068399456" value="Yes" required />
+                        <label for="yes" class="pixel-btn">Yes</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="no" name="entry.1068399456" value="No" />
+                        <label for="no" class="pixel-btn">No</label>
+                    </div>
                 </div>
 
-                <div>
-                    <input type="radio" id="no" name="entry.1068399456" value="No" />
-                    <label for="no" class="pixel-btn">No</label>
-                </div>
-            </div>
-
-            <button type="submit" class="pixel-submit">Submit</button>
+                <button type="submit" class="pixel-submit">Submit</button>
             </form>
+
 
             <iframe name="hidden_iframe" style="display:none;"></iframe>
 
@@ -67,14 +69,30 @@
 </body>
 
 <script>
-    function showMessage() {
-        // Optional: show success message briefly
-        document.getElementById("successMessage").style.display = "block";
+function showMessage(event) {
+    event.preventDefault(); // stop normal form submission
 
-        // Redirect after 1 second (1000ms)
-        setTimeout(() => {
+    // Get selected value
+    const choice = document.querySelector('input[name="entry.1068399456"]:checked')?.value;
+
+    console.log("Form submitted. Selected choice:", choice); // <-- debug message
+
+    // Submit the form to the hidden iframe
+    document.getElementById("myForm").submit();
+    console.log("Form submitted to hidden iframe"); // <-- debug message
+
+    // Redirect based on choice after short delay
+    setTimeout(() => {
+        if (choice === "Yes") {
+            console.log("Redirecting to date.html"); // <-- debug message
             window.location.href = "date.html";
-        }, 1000);
-    }
+        } else if (choice === "No") {
+            console.log("Redirecting to sad.html"); // <-- debug message
+            window.location.href = "sad.html";
+        } else {
+            console.log("No choice detected"); // <-- debug message
+        }
+    }, 500); // small delay to let form submit
+}
 </script>
 </html>
