@@ -9,8 +9,8 @@
 
     body {
       font-family: "Pixelify Sans", sans-serif;;
-      overflow: hidden;
-      height: 100vh;
+      /* overflow: hidden; */
+      height: 100%;
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
       display: flex;
       justify-content: center;
