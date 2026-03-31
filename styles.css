@@ -27,6 +27,8 @@
   width: 100%;
   padding: 20px;
   flex-wrap: wrap; /* responsive on small screens */
+     overflow: auto;
+    height: 100vh;
 }
 
 .border-container {
